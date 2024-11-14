@@ -1,3 +1,4 @@
+---
 name: Deploy Next.js site to Pages
 
 on:
@@ -6,7 +7,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  statuses: write
   pages: write
   id-token: write
 
@@ -25,14 +27,18 @@ jobs:
         id: detect-package-manager
         run: |
           if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
+            {
+              echo "manager=yarn"
+              echo "command=install"
+              echo "runner=yarn"
+            } >> "$GITHUB_OUTPUT"
             exit 0
           elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+            {
+              echo "manager=npm"
+              echo "command=ci"
+              echo "runner=npx --no-install"
+            } >> "$GITHUB_OUTPUT"
             exit 0
           else
             echo "Unable to determine package manager"
@@ -60,7 +66,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: Set environment variables
-        run: echo "NEXT_PUBLIC_BASE_URL=https://ziy1.github.io" >> $GITHUB_ENV
+        run: echo "NEXT_PUBLIC_BASE_URL=https://ziy1.github.io" >> "$GITHUB_ENV"
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
