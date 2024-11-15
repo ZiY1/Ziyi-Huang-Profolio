@@ -7,7 +7,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { routes } from '@/data/routes'
+import { routes } from '@/data'
 import NextLink from 'next/link'
 
 export const MobileNav = () => {

@@ -1,5 +1,5 @@
 import { Layout } from '@/components/layout'
-// import { About } from '@/components/sections/about'
+import { About } from '@/components/sections/about'
 // import { Contact } from '@/components/sections/contact'
 // import { Projects } from '@/components/sections/projects'
 import { Typography } from '@/components/typography'
@@ -48,7 +48,7 @@ const HomePage = () => {
                     priority
                 />
             </section>
-            {/* <About /> */}
+            <About />
             {/* <Projects featured /> */}
             {/* <Contact /> */}
         </Layout>

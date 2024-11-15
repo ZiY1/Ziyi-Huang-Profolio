@@ -3,7 +3,7 @@
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { routes } from '@/data/routes'
+import { routes } from '@/data'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
