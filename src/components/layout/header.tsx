@@ -1,5 +1,5 @@
 import { DesktopNav } from '@/components/layout/desktop-nav'
-// import { MobileNav } from '@/components/layout/mobile-nav'
+import { MobileNav } from '@/components/layout/mobile-nav'
 import { Typography } from '@/components/typography'
 import NextLink from 'next/link'
 
@@ -11,7 +11,7 @@ export const Header = () => {
                     <Typography variant="h1">Ziyi Huang</Typography>
                 </NextLink>
                 <DesktopNav />
-                {/* <MobileNav /> */}
+                <MobileNav />
             </div>
         </header>
     )
